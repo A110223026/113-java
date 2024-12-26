@@ -3,7 +3,7 @@ package main.models;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Order {
+public class Order implements Comparable<Order> {
     private int orderId;
     private Date date;
     private ArrayList<Product> products;
@@ -12,6 +12,7 @@ public class Order {
         this.orderId = orderId;
         this.date = new Date();
         this.products = products;
+        this.status = "Pending";
     }
 
     public int getOrderId() {
@@ -24,5 +25,18 @@ public class Order {
 
     public ArrayList<Product> getProducts() {
         return products;
+    }
+
+    public void updateStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    @Override
+    public int compareTo(Order other) {
+        return this.date.compareTo(other.date);
     }
 }

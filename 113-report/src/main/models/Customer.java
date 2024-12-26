@@ -9,6 +9,7 @@ public class Customer extends User {
     public Customer(String username, String email) {
         super(username, email); // 呼叫父類別的建構子
         this.shoppingCart = new ArrayList<>();
+    }
 }
 
     public void addToCart(Product product) {
@@ -29,4 +30,3 @@ public class Customer extends User {
     public void displayInfo() {
         System.out.println("Customer Username: " + username + ", Email: " + email);
     }
-}
